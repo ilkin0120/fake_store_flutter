@@ -134,10 +134,9 @@ class ProductPage extends StatelessWidget {
                   Expanded(
                     child: DefaultButton(
                       text: 'Add to cart',
-
                       height: 48,
                       padding: EdgeInsets.symmetric(vertical: 14),
-                      onPress: () =>context.read<CartCubit>().add(product.id),
+                      onPress: () => context.read<CartCubit>().add(product.id),
                       mode: ButtonMode.dark,
                     ),
                   ),

@@ -4,7 +4,9 @@ import 'package:fake_store/common/widgets/default_button.dart';
 import 'package:fake_store/common/widgets/default_image_container.dart';
 import 'package:fake_store/routes/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../bloc/cart/cart_cubit.dart';
 import '../../common/widgets/custom_icon_button.dart';
 import '../../domain/entities/product/product_entity.dart';
 
@@ -81,7 +83,7 @@ class WishlistItem extends StatelessWidget {
                     const VerticalGap(8),
                     DefaultButton(
                       text: 'Add to cart',
-                      onPress: () {},
+                      onPress: () =>context.read<CartCubit>().add(product.id),
                       mode: ButtonMode.light,
                       textStyle: context.text.bodySmall.copyWith(
                         fontWeight: FontWeight.w600,
