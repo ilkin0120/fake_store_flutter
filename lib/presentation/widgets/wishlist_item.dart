@@ -25,7 +25,12 @@ class WishlistItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>Navigator.pushNamed(context, productPageRoute,arguments: {'product':product}),
+      onTap:
+          () => Navigator.pushNamed(
+            context,
+            productPageRoute,
+            arguments: {'product': product},
+          ),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.black.withValues(alpha: 0.05),
@@ -76,14 +81,16 @@ class WishlistItem extends StatelessWidget {
                     Text(
                       '\$${product.price.toStringAsFixed(2)}',
                       style: context.text.bodyXSmall.copyWith(
-                        color: context.color.primaryText.withValues(alpha: 0.75),
+                        color: context.color.primaryText.withValues(
+                          alpha: 0.75,
+                        ),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const VerticalGap(8),
                     DefaultButton(
                       text: 'Add to cart',
-                      onPress: () =>context.read<CartCubit>().add(product.id),
+                      onPress: () => context.read<CartCubit>().add(product.id),
                       mode: ButtonMode.light,
                       textStyle: context.text.bodySmall.copyWith(
                         fontWeight: FontWeight.w600,
